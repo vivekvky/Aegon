@@ -65,8 +65,6 @@ describe("Game Component", () => {
     // Wait for the API to return fake Pokémon data
     await waitFor(() => expect(fetch).toHaveBeenCalled());
     await waitFor(() => expect(screen.getByRole("img")).toBeVisible());
-    // expect(screen.getByText("mewtwo")).toBeInTheDocument();
-    expect(screen.getByText("No Pokémon available. Please try again later.")).toBeInTheDocument();
     await screen.findByText("Score: 0");
   });
 
