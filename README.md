@@ -4,6 +4,12 @@
 
  - Install Node latest version
 
+## Guess the Pokemon Game
+
+A greyed out pokemon image with border is displayed with 4 buttons below it.\
+We need to guess the correct option by clicking the button.\
+If we guess correct answer we get points and can click on next button to choose the next set of pokemons.\
+
 
 ### Local development & running
 
