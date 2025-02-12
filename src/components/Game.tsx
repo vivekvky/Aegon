@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useCallback } from "react";
-import "./Game.css";
-import { shuffleChoices } from "../utils/utils";
+import React, { useEffect, useState, useCallback } from 'react';
+import './Game.css';
+import { shuffleChoices } from '../utils/utils';
 
-const POKEAPI_URL = "https://pokeapi.co/api/v2/pokemon/";
+const POKEAPI_URL = 'https://pokeapi.co/api/v2/pokemon/';
 const Random_PokemonNames_URL = `${POKEAPI_URL}?limit=50&offset=0`;
 const MAX_POKEMON = 50;
 
@@ -25,7 +25,7 @@ const Game: React.FC = () => {
       const response = await fetch(url);
 
       if (!response.ok) {
-        throw new Error("Failed to fetch");
+        throw new Error('Failed to fetch');
       }
       return response.json();
     } catch (error) {
@@ -36,7 +36,7 @@ const Game: React.FC = () => {
 
   const fetchFakePokemon = useCallback(async () => {
     const response = await fetchPokemonData(Random_PokemonNames_URL);
-    setFakePokemonsList(response["results"]);
+    setFakePokemonsList(response['results']);
   }, []);
 
   const fetchNewPokemon = useCallback(async () => {
@@ -46,14 +46,14 @@ const Game: React.FC = () => {
       const correctData = await fetchPokemonData(`${POKEAPI_URL}${correctId}`);
 
       const correctImage =
-        correctData?.sprites?.other["official-artwork"]?.front_default;
+        correctData?.sprites?.other['official-artwork']?.front_default;
 
       // Shuffle and select fake Pokemon names efficiently
       const fakePokemonNames = fakePokemonsList
         .slice() // Create a shallow copy to avoid mutating the original list
         .sort(() => Math.random() - 0.5)
         .slice(0, 3)
-        .map((e) => e["name"]);
+        .map((e) => e['name']);
 
       // Generate shuffled choices
       const choices = shuffleChoices(correctData.name, fakePokemonNames);
@@ -95,7 +95,7 @@ const Game: React.FC = () => {
           <img
             src={correctPokemon.image}
             alt="Pokemon silhouette"
-            className={selected ? "revealed" : "silhouette"}
+            className={selected ? 'revealed' : 'silhouette'}
             width={200}
           />
           <div>
@@ -112,7 +112,7 @@ const Game: React.FC = () => {
           {selected && (
             <div>
               <h2>{`${
-                selected === correctPokemon.name ? "Correct!" : "Wrong!"
+                selected === correctPokemon.name ? 'Correct!' : 'Wrong!'
               } It's ${correctPokemon.name}.`}</h2>
               <button onClick={fetchNewPokemon}>Next</button>
             </div>

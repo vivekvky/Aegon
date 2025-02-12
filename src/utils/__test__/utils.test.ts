@@ -1,13 +1,13 @@
-import { shuffleChoices } from '../utils'; 
+import { shuffleChoices } from '../utils';
 
-describe('shuffleChoices', () => { 
-//   beforeEach(() => {
-//     jest.spyOn(global.Math, 'random').mockReturnValue(0.5); 
-//   });
+describe('shuffleChoices', () => {
+  //   beforeEach(() => {
+  //     jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
+  //   });
 
-//   afterEach(() => {
-//     jest.spyOn(global.Math, 'random').mockRestore();
-//   });
+  //   afterEach(() => {
+  //     jest.spyOn(global.Math, 'random').mockRestore();
+  //   });
 
   it('should return an array containing the correctName and fakeNames in a shuffled order', () => {
     const correctName = 'Correct Name';
