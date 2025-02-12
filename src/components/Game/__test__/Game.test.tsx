@@ -8,11 +8,11 @@ import {
   act,
 } from '@testing-library/react';
 import Game from '../Game';
-import * as utils from '../../utils/utils';
+import * as utils from '../../../utils/utils';
 
 // Mock the shuffleChoices function
-jest.mock('../../utils/utils', () => ({
-  ...jest.requireActual('../../utils/utils'),
+jest.mock('../../../utils/utils', () => ({
+  ...jest.requireActual('../../../utils/utils'),
   shuffleChoices: jest.fn(),
 }));
 
@@ -54,13 +54,13 @@ describe('Game Component', () => {
     (global.fetch as jest.Mock).mockClear();
   });
 
-  it('renders loading state initially', () => {
+  test('renders loading state initially', () => {
     act(() => {
       render(<Game />);
     });
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
-  it('should fetch Pokémon data and display image', async () => {
+  test('should fetch Pokémon data and display image', async () => {
     act(() => {
       render(<Game />);
     });
@@ -72,7 +72,7 @@ describe('Game Component', () => {
     expect(screen.getByText('pikachu')).toBeInTheDocument();
   });
 
-  it('should render the game and display score as 0', async () => {
+  test('should render the game and display score as 0', async () => {
     act(() => {
       render(<Game />);
     });
@@ -81,7 +81,7 @@ describe('Game Component', () => {
     await screen.findByText('Score: 0');
   });
 
-  it('should display an error message if no Pokémon data is available', async () => {
+  test('should display an error message if no Pokémon data is available', async () => {
     (fetch as jest.Mock).mockResolvedValueOnce({
       ok: false,
       json: () => Promise.resolve({}),
@@ -92,11 +92,11 @@ describe('Game Component', () => {
     });
 
     expect(
-      screen.getByText(/No Pokémon available. Please try again later./i),
-    ).toBeInTheDocument();
+      await screen.findByText(/No Pokémon available. Please try again later./i)
+    ).toBeVisible();
   });
 
-  it('should update the score when selecting the correct option', async () => {
+  test('should update the score when selecting the correct option', async () => {
     (fetch as jest.Mock).mockResolvedValueOnce({
       ok: true,
       json: () => Promise.resolve({ results: mockFakePokemons }),
@@ -116,7 +116,7 @@ describe('Game Component', () => {
           name: 'charizard',
         }),
     });
-    
+
     act(() => {
       render(<Game />);
     });

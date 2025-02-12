@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import './Game.css';
-import { shuffleChoices } from '../utils/utils';
+import { shuffleChoices } from '../../utils/utils';
+import ButtonList from '../ButtonList/ButtonList';
 
 const POKEAPI_URL = 'https://pokeapi.co/api/v2/pokemon/';
 const Random_PokemonNames_URL = `${POKEAPI_URL}?limit=50&offset=0`;
@@ -98,17 +99,11 @@ const Game: React.FC = () => {
             className={selected ? 'revealed' : 'silhouette'}
             width={200}
           />
-          <div>
-            {options.map((option) => (
-              <button
-                key={option}
-                onClick={() => handleChoice(option)}
-                disabled={!!selected}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
+            <ButtonList
+              options={options}
+              handleChoice={handleChoice}
+              selected={selected}
+            />
           {selected && (
             <div>
               <h2>{`${

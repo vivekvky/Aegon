@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 
 // Mock the Game component to isolate the App component test
-jest.mock('./components/Game', () => () => <div>Mocked Game Component</div>);
+jest.mock('./components/Game/Game', () => () => <div>Mocked Game Component</div>);
 
 describe('App', () => {
   it('renders the Game component', () => {

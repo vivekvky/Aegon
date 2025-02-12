@@ -1,7 +1,7 @@
 import { shuffleChoices } from '../utils';
 
 describe('shuffleChoices', () => {
-  it('should return an array containing the correctName and fakeNames in a shuffled order', () => {
+  test('should return an array containing the correctName and fakeNames in a shuffled order', () => {
     const correctName = 'Correct Name';
     const fakeNames = ['Fake Name 1', 'Fake Name 2', 'Fake Name 3'];
 
