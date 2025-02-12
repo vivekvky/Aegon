@@ -15,7 +15,7 @@ const Game: React.FC = () => {
   const [correctPokemon, setCorrectPokemon] = useState<Pokemon | null>(null);
   const [options, setOptions] = useState<string[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
-  const [fakePokemonsList, setFakePokemons] = useState<string[]>([]);
+  const [fakePokemonsList, setFakePokemonsList] = useState<string[]>([]);
 
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -36,7 +36,7 @@ const Game: React.FC = () => {
 
   const fetchFakePokemon = useCallback(async () => {
     const response = await fetchPokemonData(Random_PokemonNames_URL);
-    setFakePokemons(response["results"]);
+    setFakePokemonsList(response["results"]);
   }, []);
 
   const fetchNewPokemon = useCallback(async () => {

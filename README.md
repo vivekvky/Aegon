@@ -13,11 +13,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm run test`
 
-Launches the test runner which runs the code coverage.\
+Launches the test runner which runs the code coverage.
 
 ### `npm run coverage`
 
-Launches the test runner in the interactive watch mode with the code coverage of files.\
+Launches the test runner in the interactive watch mode with the code coverage of files.
 
 ### `npm run build`
 
