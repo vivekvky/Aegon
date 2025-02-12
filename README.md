@@ -12,7 +12,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Code coverage
 
-running `npm run coverage`, launches the test runner which runs the code coverage.
+running `npm run test:c`, launches the test runner which runs the code coverage.
 
 ### Run unit test in watch mode
 
