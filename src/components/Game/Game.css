@@ -37,11 +37,6 @@
   background-color: #0056b3;
 }
 
-.game-container button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-
 
 h2 {
   color: #ff5733;
