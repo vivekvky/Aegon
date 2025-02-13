@@ -1,11 +1,6 @@
 import React from 'react';
 import './ButtonList.css';
-
-interface ButtonListOptions {
-  options: string[];
-  handleChoice: (e: string) => void;
-  selected: string | null;
-}
+import ButtonListOptions from '../../interface/ButtonListOptions';
 
 const ButtonList = ({ options, handleChoice, selected }: ButtonListOptions) => {
   return (

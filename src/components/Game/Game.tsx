@@ -2,21 +2,17 @@ import React, { useEffect, useState, useCallback } from 'react';
 import './Game.css';
 import { shuffleChoices, getPokemonByKey } from '../../utils/utils';
 import ButtonList from '../ButtonList/ButtonList';
+import IPokemon from '../../interface/Pokemon';
 
 const POKEAPI_URL = 'https://pokeapi.co/api/v2/pokemon/';
 const Random_PokemonNames_URL = `${POKEAPI_URL}?limit=50&offset=0`;
 const MAX_POKEMON = 50;
 
-interface Pokemon {
-  name: string;
-  image: string;
-}
-
 const Game: React.FC = () => {
-  const [correctPokemon, setCorrectPokemon] = useState<Pokemon | null>(null);
+  const [correctPokemon, setCorrectPokemon] = useState<IPokemon | null>(null);
   const [options, setOptions] = useState<string[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
-  const [fakePokemonsList, setFakePokemonsList] = useState<string[]>([]);
+  const [fakePokemonsList, setFakePokemonsList] = useState<IPokemon[]>([]);
 
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(true);

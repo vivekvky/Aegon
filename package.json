@@ -18,7 +18,8 @@
   },
   "jest": {
     "coveragePathIgnorePatterns" : [
-      "index.tsx"
+      "index.tsx",
+      "src/interface"
     ]
   },
   "compilerOptions": {
