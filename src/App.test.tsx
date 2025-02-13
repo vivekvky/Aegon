@@ -6,11 +6,9 @@ import App from './App';
 jest.mock('./components/Game/Game', () => () => <div>Mocked Game Component</div>);
 
 describe('App', () => {
-  it('renders the Game component', () => {
-    // Render the App component
-    render(<App />); // Use App as a value, not a type
+  test('renders the Game component', () => {
+    render(<App />);
 
-    // Check if the mocked Game component is rendered
     const gameElement = screen.getByText('Mocked Game Component');
     expect(gameElement).toBeInTheDocument();
   });

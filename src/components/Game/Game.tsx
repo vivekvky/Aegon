@@ -99,11 +99,11 @@ const Game: React.FC = () => {
             className={selected ? 'revealed' : 'silhouette'}
             width={200}
           />
-            <ButtonList
-              options={options}
-              handleChoice={handleChoice}
-              selected={selected}
-            />
+          <ButtonList
+            options={options}
+            handleChoice={handleChoice}
+            selected={selected}
+          />
           {selected && (
             <div>
               <h2>{`${

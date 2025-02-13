@@ -13,7 +13,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
-    "test:c": "react-scripts test --coverage",
+    "test:c": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "jest": {

@@ -2,13 +2,18 @@
 
 ## Pre-requisites to install dependencies
 
- - Install Node latest version
+- Install Node latest version
 
 ## Guess the Pokemon Game
 
-A greyed out pokemon image with border is displayed with 4 buttons below it.\
-We need to guess the correct option by clicking the button.\
-If we guess correct answer we get points and can click on next button to choose the next set of pokemons.\
+A greyed out pokemon image with just the outline of pokemon is displayed with 4  with names of different pokemons below it.\
+We need to guess the correct option by clicking the name of pokemon button.\
+If we guess correct answer we get points and can click on next button to choose the next set of pokemons.
+
+
+## About
+
+- This game is built using ReactJs, Typescript and plane css for styling.
 
 
 ### Local development & running

@@ -15,6 +15,6 @@
 }
 
 .button-list button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
+  background-color: #ccc;
+  cursor: not-allowed;
+}

@@ -92,7 +92,7 @@ describe('Game Component', () => {
     });
 
     expect(
-      await screen.findByText(/No Pokémon available. Please try again later./i)
+      await screen.findByText(/No Pokémon available. Please try again later./i),
     ).toBeVisible();
   });
 
