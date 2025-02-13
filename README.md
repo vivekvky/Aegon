@@ -10,6 +10,11 @@ A greyed out pokemon image with just the outline of pokemon is displayed with 4 
 We need to guess the correct option by clicking the name of pokemon button.\
 If we guess correct answer we get points and can click on next button to choose the next set of pokemons.
 
+## Screenshots
+
+![image](https://github.com/user-attachments/assets/bc13b965-2d39-4bb5-bd4d-db101d5f6468)
+
+
 ## About
 
 - This game is built using ReactJs, Typescript and plane css for styling.
