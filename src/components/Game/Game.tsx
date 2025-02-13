@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import './Game.css';
-import { shuffleChoices } from '../../utils/utils';
+import { shuffleChoices, getPokemonByKey } from '../../utils/utils';
 import ButtonList from '../ButtonList/ButtonList';
 
 const POKEAPI_URL = 'https://pokeapi.co/api/v2/pokemon/';
@@ -21,6 +21,7 @@ const Game: React.FC = () => {
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(true);
 
+  /* API call to fetch respone based on url */
   const fetchPokemonData = async (url: string) => {
     try {
       const response = await fetch(url);
@@ -35,11 +36,13 @@ const Game: React.FC = () => {
     }
   };
 
+  /* fetch fake pokemon */
   const fetchFakePokemon = useCallback(async () => {
     const response = await fetchPokemonData(Random_PokemonNames_URL);
     setFakePokemonsList(response['results']);
   }, []);
 
+  /* fetch correct pokemon and setup the data for the game */
   const fetchNewPokemon = useCallback(async () => {
     setLoading(true);
     try {
@@ -49,17 +52,13 @@ const Game: React.FC = () => {
       const correctImage =
         correctData?.sprites?.other['official-artwork']?.front_default;
 
-      // Shuffle and select fake Pokemon names efficiently
-      const fakePokemonNames = fakePokemonsList
-        .slice() // Create a shallow copy to avoid mutating the original list
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 3)
-        .map((e) => e['name']);
+      /* filter by name get array of fake Pokemon Names */
+      const fakePokemonNames = getPokemonByKey(fakePokemonsList, 'name');
 
-      // Generate shuffled choices
+      /* Generate shuffled choices */
       const choices = shuffleChoices(correctData.name, fakePokemonNames);
 
-      // Update state in a single batch to reduce re-renders
+      /* Update and save state of correct pokemon */
       setCorrectPokemon({ name: correctData.name, image: correctImage });
       setOptions(choices);
       setSelected(null);
@@ -71,6 +70,7 @@ const Game: React.FC = () => {
     }
   }, [fakePokemonsList]);
 
+  /* set the selected pokemon and update the score */
   const handleChoice = (choice: string) => {
     setSelected(choice);
     if (choice === correctPokemon?.name) {
@@ -78,10 +78,12 @@ const Game: React.FC = () => {
     }
   };
 
+  /* fetch the fake pokemons */
   useEffect(() => {
     fetchFakePokemon();
   }, [fetchFakePokemon]);
 
+  /* fetch the correct pokemon after we get the list */
   useEffect(() => {
     fetchNewPokemon();
   }, [fakePokemonsList, fetchNewPokemon]);

@@ -14,6 +14,7 @@ import * as utils from '../../../utils/utils';
 jest.mock('../../../utils/utils', () => ({
   ...jest.requireActual('../../../utils/utils'),
   shuffleChoices: jest.fn(),
+  getPokemonByKey: jest.fn(),
 }));
 
 // set global.fetch to a jest mock function
@@ -47,6 +48,11 @@ describe('Game Component', () => {
     (utils.shuffleChoices as jest.Mock).mockImplementation(
       (correct, fakeNames) => [correct, ...fakeNames],
     );
+    (utils.getPokemonByKey as jest.Mock).mockImplementation(() => [
+      'bulbasaur',
+      'charizard',
+      'jigglypuff',
+    ]);
   });
 
   afterEach(() => {

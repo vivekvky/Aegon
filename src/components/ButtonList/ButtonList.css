@@ -1,3 +1,10 @@
+.button-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
 .button-list button {
   background-color: #007bff;
   color: white;
@@ -17,4 +24,17 @@
 .button-list button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  .button-list {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-list button {
+    width: 100%;
+    margin: 5px 0;
+  }
 }

@@ -1,10 +1,16 @@
-import { shuffleChoices } from '../utils';
+import { shuffleChoices, getPokemonByKey } from '../utils';
+
+const mockFakePokemons = [
+  { name: 'bulbasaur' },
+  { name: 'charizard' },
+  { name: 'jigglypuff' },
+];
+
+const correctName = 'Correct Name';
+const fakeNames = ['bulbasaur', 'jigglypuff', 'charizard'];
 
 describe('shuffleChoices', () => {
   test('should return an array containing the correctName and fakeNames in a shuffled order', () => {
-    const correctName = 'Correct Name';
-    const fakeNames = ['Fake Name 1', 'Fake Name 2', 'Fake Name 3'];
-
     const result = shuffleChoices(correctName, fakeNames);
 
     expect(result).toContain(correctName);
@@ -13,5 +19,15 @@ describe('shuffleChoices', () => {
     });
 
     expect(result).toHaveLength(fakeNames.length + 1);
+  });
+
+  test('should return an array of pokemon names', () => {
+    const result = getPokemonByKey(mockFakePokemons, 'name');
+
+    result.forEach((name) => {
+      expect(result).toContain(name);
+    });
+
+    expect(result).toHaveLength(3);
   });
 });
